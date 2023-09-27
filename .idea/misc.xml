@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/MyOrders.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/confirmorder.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.1897644927536232" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1897644927536232" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.29458768074972597" />
+        <entry key="app/src/main/res/layout/mycart.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/myorders.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/orderconfirmed.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/productinfo.xml" value="0.3066123188405797" />
+        <entry key="app/src/main/res/layout/search.xml" value="0.3066123188405797" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
