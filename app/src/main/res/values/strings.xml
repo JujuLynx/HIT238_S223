@@ -27,6 +27,40 @@
     <string name="activity_HomeContact">You really should not try to contact us, but if you must here are our details:</string>
     <string name="activity_HomeContactPhone">Ph: (08) 4000 1234</string>
     <string name="activity_HomeContactEmail">Email: void@tooltopia.com.au</string>
+    <string name="activity_HomeSearchButton">Search Products</string>
+
+    <!-- Strings for the search activity -->
+    <string name="activity_SearchHeading">Search Products</string>
+    <string name="activity_SearchSearchButton">Search</string>
+
+    <!-- Strings for the product info activity -->
+    <string name="activity_ProductInfoHeading">Product Title</string>
+    <string name="activity_ProductInfoDescription">Product Description</string>
+    <string name="activity_ProductInfoPrice">Price</string>
+    <string name="activity_ProductInfoBackBtn">Back To Products</string>
+    <string name="activity_ProductInfoAddToCartBtn">Add To Cart</string>
+    <string name="activity_ProductInfoQuantity">Quantity</string>
+
+    <!-- Strings for the my cart activity -->
+    <string name="activity_MyCartHeading">My Shopping Cart</string>
+    <string name="activity_MyCartBackBtn">Back To Products</string>
+    <string name="activity_MyCartCheckoutBtn">Checkout</string>
+
+    <!-- Strings for the confirm order activity -->
+    <string name="activity_ConfirmOrderHeading">Confirm Your Order</string>
+    <string name="activity_ConfirmOrderBackBtn">Back To Cart</string>
+    <string name="activity_ConfirmOrderConfirmBtn">Confirm Order</string>
+    <string name="activity_ConfirmOrderSubheading">NO REFUNDS!</string>
+
+    <!-- Strings for the order confirmed activity -->
+    <string name="activity_OrderConfirmedHeading">Order Confirmed!</string>
+    <string name="activity_OrderConfirmedBuyMoreBtn">Buy More</string>
+    <string name="activity_OrderConfirmedMyOrdersBtn">My Orders</string>
+    <string name="activity_OrderConfirmedOrderNum">Order No:</string>
+    <string name="activity_OrderConfirmedMethod">Delivery Method: Pickup Only</string>
+    <string name="activity_OrderConfirmedSubHeading">YOUR MONEY IS GONE!</string>
+
+
 
 
 </resources>
