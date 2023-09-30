@@ -19,4 +19,14 @@
     <string name="activity_OrderConfirmed">Order Confirmed!</string>
     <string name="activity_ProductInfo">Product Information</string>
     <string name="activity_Search">Search</string>
+
+    <!-- Strings for the home activity  -->
+    <string name="activity_HomeHeading">Your Tool Specialist</string>
+    <string name="activity_HomeSubHeading">Generic Hardware!</string>
+    <string name="activity_HomeText">In the vast landscape of hardware stores, Tooltopia emerges as the zenith of generic hardware offerings. From the humble hammer to the intricate nuts and bolts that hold our world together, wee have gathered an extensive range of tools and fixtures tailored to suit every craftsmans need. At Tooltopia, we believe in empowering dreams, be it a simple home repair, a DIY project, or a grand construction venture. Our carefully curated inventory is not just a collection of tools but a testament to quality, durability, and affordability.</string>
+    <string name="activity_HomeContact">You really should not try to contact us, but if you must here are our details:</string>
+    <string name="activity_HomeContactPhone">Ph: (08) 4000 1234</string>
+    <string name="activity_HomeContactEmail">Email: void@tooltopia.com.au</string>
+
+
 </resources>
