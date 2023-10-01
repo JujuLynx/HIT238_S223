@@ -1,8 +1,12 @@
 package com.example.tooltopia;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -116,6 +120,34 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(TOTAL_COL, total);
         db.insert(ORDER_TABLE, null, values);
         db.close();
+    }
+
+    public List<Items> getAllItems() {
+        List<Items> itemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(ITEM_TABLE, null, null, null, null, null, null);
+
+        int idIndex = cursor.getColumnIndex(ID_COL);
+        int nameIndex = cursor.getColumnIndex(NAME_COL);
+        int priceIndex = cursor.getColumnIndex(PRICE_COL);
+        int descriptionIndex = cursor.getColumnIndex(DESCRIPTION_COL);
+
+        if (idIndex != -1 && nameIndex != -1 && priceIndex != -1 && descriptionIndex != -1) {
+            do {
+                int id = cursor.getInt(idIndex);
+                String name = cursor.getString(nameIndex);
+                double price = cursor.getDouble(priceIndex);
+                String description = cursor.getString(descriptionIndex);
+
+                Items item = new Items(id, name, description, price);
+                itemList.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return itemList;
     }
 }
 

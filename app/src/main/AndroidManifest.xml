@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tooltopia">
 
+    <!-- adding permission to read external storage for sqlite -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -26,6 +27,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Search"
+            android:label="Search"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".ProductInfo"
+            android:label="Product Information"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".MyCart"
+            android:label="My Cart"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".ConfirmOrder"
+            android:label="Confirm Order"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".OrderConfirmed"
+            android:label="Order Confirmed"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".MyOrders"
+            android:label="My Orders"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+        <activity
+            android:name=".Home"
+            android:label="Tooltopia Home"
+            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+
+
     </application>
 
 </manifest>

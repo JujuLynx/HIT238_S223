@@ -1,4 +1,13 @@
 package com.example.tooltopia;
 
-public class MyOrders {
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MyOrders extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.myorders);
+    }
 }

@@ -1,4 +1,13 @@
 package com.example.tooltopia;
 
-public class ProductInfo {
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ProductInfo extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.productinfo);
+    }
 }
