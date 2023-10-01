@@ -1,4 +1,6 @@
 package com.example.tooltopia;
+import android.database.sqlite.SQLiteDatabase;
+
 
 import android.os.Bundle;
 
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        // Create or access the database
+        DBHandler dbHelper = new DBHandler(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        // This will create the database if it doesn't exist and execute the onCreate method of DBHandler
+        db.close();
     }
 
     @Override
@@ -73,4 +80,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }
