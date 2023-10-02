@@ -1,5 +1,6 @@
 package com.example.tooltopia;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -123,7 +124,9 @@ public class Search extends AppCompatActivity {
             itemButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Handle button click
+                    Intent intent = new Intent(Search.this, ProductInfo.class);
+                    intent.putExtra("ITEM_ID", item.getId());
+                    startActivity(intent);
                 }
             });
 

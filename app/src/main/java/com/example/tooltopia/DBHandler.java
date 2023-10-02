@@ -181,6 +181,35 @@ public class DBHandler extends SQLiteOpenHelper {
         return itemList;
     }
 
+    public Items getItemById(int itemId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(ITEM_TABLE, null, ID_COL + "=?", new String[]{String.valueOf(itemId)}, null, null, null);
+        if (cursor == null || !cursor.moveToFirst()) {
+            // Close the cursor if it's not null
+            if (cursor != null) cursor.close();
+            return null; // Return null or throw an exception
+        }
+
+        int idIndex = cursor.getColumnIndex(ID_COL);
+        int nameIndex = cursor.getColumnIndex(NAME_COL);
+        int descIndex = cursor.getColumnIndex(DESCRIPTION_COL);
+        int priceIndex = cursor.getColumnIndex(PRICE_COL);
+
+        Items item = null;
+        if (idIndex != -1 && nameIndex != -1 && descIndex != -1 && priceIndex != -1) {
+            item = new Items(
+                    cursor.getInt(idIndex),
+                    cursor.getString(nameIndex),
+                    cursor.getString(descIndex),
+                    cursor.getDouble(priceIndex)
+            );
+        }
+
+        cursor.close();
+        return item;
+    }
+
+
 
 }
 

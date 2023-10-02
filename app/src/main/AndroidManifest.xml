@@ -28,8 +28,8 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
         <activity
-            android:name=".Search"
-            android:label="Search"
+            android:name=".Home"
+            android:label="Tooltopia Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,9 +57,10 @@
             android:exported="false"
             android:label="My Orders" />
         <activity
-            android:name=".Home"
+            android:name=".Search"
             android:exported="false"
-            android:label="Tooltopia Home" />
+            android:launchMode="singleTop"
+            android:label="Search Products" />
 
 
     </application>
