@@ -1,8 +1,10 @@
 package com.example.tooltopia;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +23,7 @@ public class Search extends AppCompatActivity {
 
         final DBHandler dbHelper = new DBHandler(this);
         final LinearLayout productContainer = findViewById(R.id.product_container);
+        productContainer.setGravity(Gravity.CENTER_HORIZONTAL);
         final EditText searchText = findViewById(R.id.editTextText);
         Button searchBtn = findViewById(R.id.ProductsSearchBtn);
 
@@ -77,11 +80,62 @@ public class Search extends AppCompatActivity {
 
         for (Items item : itemsList) {
             CardView card = new CardView(this);
+
+            // Set the CardView attributes
+            int cardWidth = (int) (getResources().getDisplayMetrics().widthPixels * 0.7);  // 90% of screen width, adjust as needed
+            LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(cardWidth, LinearLayout.LayoutParams.WRAP_CONTENT);
+            cardParams.setMargins(10, 10, 10, 50);
+            card.setLayoutParams(cardParams);
+            card.setCardElevation(8);
+            card.setRadius(15);
+            card.setContentPadding(10,10,10,30);  // Add padding inside the card
+            card.setCardBackgroundColor(Color.parseColor("#F6F6F6"));  // Different background color, adjust the color code as needed
+
+            // Add a vertical LinearLayout to the CardView to stack TextView and Button
+            LinearLayout itemLayout = new LinearLayout(this);
+            itemLayout.setOrientation(LinearLayout.VERTICAL);
+            card.addView(itemLayout);
+
+            // Add a TextView for the item name
             TextView textView = new TextView(this);
             textView.setText(item.getName());
-            card.addView(textView);
+            textView.setTextSize(30);
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            textView.setPadding(20, 20, 20, 20);
+            itemLayout.addView(textView);
+
+            // Add a Button for each item
+            Button itemButton = new Button(this);
+            itemButton.setText("View Product");
+            itemButton.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+
+            itemButton.setBackgroundResource(R.drawable.rounded_button);  // Set rounded background
+            itemButton.setTextColor(Color.WHITE);  // White text color
+
+            // Set padding for the button text
+            int paddingInDp = 16;
+            int paddingInPixels = (int) (paddingInDp * getResources().getDisplayMetrics().density + 0.5f);
+            itemButton.setPadding(paddingInPixels, paddingInPixels, paddingInPixels, paddingInPixels);
+
+            itemButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Handle button click
+                }
+            });
+
+            itemLayout.addView(itemButton);
+            itemLayout.setGravity(Gravity.CENTER_HORIZONTAL);  // Center the button
+
+
+
+
             productContainer.addView(card);
         }
+
     }
 
 
