@@ -133,6 +133,37 @@ public class DBHandler extends SQLiteOpenHelper {
         int descriptionIndex = cursor.getColumnIndex(DESCRIPTION_COL);
 
         if (idIndex != -1 && nameIndex != -1 && priceIndex != -1 && descriptionIndex != -1) {
+            if (cursor.moveToFirst()) { // Make sure to add this line
+                do {
+                    int id = cursor.getInt(idIndex);
+                    String name = cursor.getString(nameIndex);
+                    double price = cursor.getDouble(priceIndex);
+                    String description = cursor.getString(descriptionIndex);
+
+                    Items item = new Items(id, name, description, price);
+                    itemList.add(item);
+                } while (cursor.moveToNext());
+            }
+        }
+
+        cursor.close();
+        db.close();
+
+        return itemList;
+    }
+
+    public List<Items> searchItems(String query) {
+        List<Items> itemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(ITEM_TABLE, null, NAME_COL + " LIKE ?", new String[] { "%" + query + "%" }, null, null, null);
+
+        int idIndex = cursor.getColumnIndex(ID_COL);
+        int nameIndex = cursor.getColumnIndex(NAME_COL);
+        int priceIndex = cursor.getColumnIndex(PRICE_COL);
+        int descriptionIndex = cursor.getColumnIndex(DESCRIPTION_COL);
+
+        if (cursor.moveToFirst()) {
             do {
                 int id = cursor.getInt(idIndex);
                 String name = cursor.getString(nameIndex);
@@ -149,6 +180,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return itemList;
     }
+
+
 }
 
 

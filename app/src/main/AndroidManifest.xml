@@ -16,11 +16,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tooltopia"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@style/Theme.Tooltopia.NoActionBar">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Tooltopia.NoActionBar">
+            android:name=".Search"
+            android:label="Search"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,33 +38,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Search"
-            android:label="Search"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
-        <activity
             android:name=".ProductInfo"
-            android:label="Product Information"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:label="Product Information" />
         <activity
             android:name=".MyCart"
-            android:label="My Cart"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:exported="false"
+            android:label="My Cart" />
         <activity
             android:name=".ConfirmOrder"
-            android:label="Confirm Order"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:exported="false"
+            android:label="Confirm Order" />
         <activity
             android:name=".OrderConfirmed"
-            android:label="Order Confirmed"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:exported="false"
+            android:label="Order Confirmed" />
         <activity
             android:name=".MyOrders"
-            android:label="My Orders"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:exported="false"
+            android:label="My Orders" />
         <activity
             android:name=".Home"
-            android:label="Tooltopia Home"
-            android:theme="@style/Theme.Tooltopia.NoActionBar" />
+            android:exported="false"
+            android:label="Tooltopia Home" />
 
 
     </application>
