@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +15,7 @@ import com.bumptech.glide.Glide;  // Import Glide
 
 public class ProductInfo extends AppCompatActivity {
     private DBHandler dbHelper;
+    private int itemId = -1; // Move this here, making it a member variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +26,7 @@ public class ProductInfo extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            int itemId = extras.getInt("ITEM_ID");
-
+            itemId = extras.getInt("ITEM_ID");
             Items item = dbHelper.getItemById(itemId);
 
             if (item != null) {
@@ -55,6 +57,38 @@ public class ProductInfo extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button addToCartButton = findViewById(R.id.AddToCartBtn);
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(itemId != -1) {
+                    ShoppingCart cart = ShoppingCart.getInstance();
+                    Items item = dbHelper.getItemById(itemId);
+
+                    // Get the quantity from the EditText
+                    EditText quantityEditText = findViewById(R.id.ProductQntyInput);
+                    int quantity = Integer.parseInt(quantityEditText.getText().toString());
+
+                    if (item != null) {
+                        cart.addItem(item, quantity);  // Pass the quantity to the method
+                        Toast.makeText(ProductInfo.this, "Added to cart!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+
+        Button viewCartButton = findViewById(R.id.viewCartBtn);
+        viewCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductInfo.this, MyCart.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 
