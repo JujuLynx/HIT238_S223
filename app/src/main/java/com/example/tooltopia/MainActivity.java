@@ -19,6 +19,8 @@ import com.example.tooltopia.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         // Create or access the database
         DBHandler dbHelper = new DBHandler(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
