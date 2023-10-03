@@ -4,20 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ProductInfo extends AppCompatActivity {
+import com.bumptech.glide.Glide;  // Import Glide
 
-    private DBHandler dbHelper;  // Assuming this is your database helper class
+public class ProductInfo extends AppCompatActivity {
+    private DBHandler dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.productinfo); // Assuming this is the layout XML for ProductInfo
+        setContentView(R.layout.productinfo);
 
-        dbHelper = new DBHandler(this); // Initialize your database helper
+        dbHelper = new DBHandler(this);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -25,8 +27,11 @@ public class ProductInfo extends AppCompatActivity {
 
             Items item = dbHelper.getItemById(itemId);
 
-            // Ensure the item is not null before accessing its properties
             if (item != null) {
+                // Display product image using Glide
+                ImageView productImage = findViewById(R.id.ProductImage);
+                Glide.with(this).load(item.getImageUrl()).into(productImage);
+
                 TextView productTitle = findViewById(R.id.ProductTitleText);
                 productTitle.setText(item.getName());
 

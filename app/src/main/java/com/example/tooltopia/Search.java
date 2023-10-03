@@ -103,7 +103,7 @@ public class Search extends AppCompatActivity {
 
             // Add an ImageView for the item image
             ImageView itemImage = new ImageView(this);
-            int imageHeight = (int) (getResources().getDisplayMetrics().widthPixels * 0.7); // adjust as needed
+            int imageHeight = (int) (getResources().getDisplayMetrics().widthPixels * 0.2); // adjust as needed
             LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(cardWidth, imageHeight);
             itemImage.setLayoutParams(imageParams);
             Glide.with(this).load(item.getImageUrl()).into(itemImage);  // Using Glide to load the image from the URL
