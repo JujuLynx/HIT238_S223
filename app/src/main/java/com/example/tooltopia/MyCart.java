@@ -1,5 +1,6 @@
 package com.example.tooltopia;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -104,6 +105,39 @@ public class MyCart extends AppCompatActivity {
 
             tableLayout.addView(tableRow);
         }
+
+        // Set up the "Back to Products" button to navigate to the Search activity
+        Button backButton = findViewById(R.id.CartBackBtn);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Search activity using an Intent
+                Intent intent = new Intent(MyCart.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the "search" nav button to navigate to the Search activity
+        Button NavSearchButton = findViewById(R.id.nav2);
+        NavSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Search activity using an Intent
+                Intent intent = new Intent(MyCart.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the "home" nav button to navigate to the Home activity
+        Button NavHomeButton = findViewById(R.id.nav1);
+        NavHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Search activity using an Intent
+                Intent intent = new Intent(MyCart.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
 
         // Update the TextView with the computed total cost

@@ -58,6 +58,28 @@ public class ProductInfo extends AppCompatActivity {
             }
         });
 
+        // Set up the "search" nav button to navigate to the Search activity
+        Button NavSearchButton = findViewById(R.id.nav2);
+        NavSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Search activity using an Intent
+                Intent intent = new Intent(ProductInfo.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the "home" nav button to navigate to the Home activity
+        Button NavHomeButton = findViewById(R.id.nav1);
+        NavHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the Search activity using an Intent
+                Intent intent = new Intent(ProductInfo.this, Home.class);
+                startActivity(intent);
+            }
+        });
+
         Button addToCartButton = findViewById(R.id.AddToCartBtn);
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,8 +100,8 @@ public class ProductInfo extends AppCompatActivity {
             }
         });
 
-
-        Button viewCartButton = findViewById(R.id.viewCartBtn);
+        // Set up the "cart" nav button to navigate to the cart activity
+        Button viewCartButton = findViewById(R.id.nav4);
         viewCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
