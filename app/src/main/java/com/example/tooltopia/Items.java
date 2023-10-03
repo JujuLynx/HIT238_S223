@@ -5,13 +5,15 @@ public class Items {
     private String name;       // Name of the item
     private String description; // Description of the item
     private double price;      // Price of the item
+    private String imageUrl;   // URL for the image of the item
 
     // Constructor
-    public Items(int id, String name, String description, double price) {
+    public Items(int id, String name, String description, double price, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.imageUrl = imageUrl; // Set the imageUrl
     }
 
     // Getters and Setters for the attributes
@@ -47,12 +49,21 @@ public class Items {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return name + " - " + description + " - $" + price;
+    // New getter and setter for imageUrl
+    public String getImageUrl() {
+        return imageUrl;
     }
 
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + description + " - $" + price + " - Image: " + imageUrl;
+    }
 }
+
 
 
 

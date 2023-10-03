@@ -9,10 +9,14 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class Search extends AppCompatActivity {
@@ -96,6 +100,14 @@ public class Search extends AppCompatActivity {
             LinearLayout itemLayout = new LinearLayout(this);
             itemLayout.setOrientation(LinearLayout.VERTICAL);
             card.addView(itemLayout);
+
+            // Add an ImageView for the item image
+            ImageView itemImage = new ImageView(this);
+            int imageHeight = (int) (getResources().getDisplayMetrics().widthPixels * 0.7); // adjust as needed
+            LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(cardWidth, imageHeight);
+            itemImage.setLayoutParams(imageParams);
+            Glide.with(this).load(item.getImageUrl()).into(itemImage);  // Using Glide to load the image from the URL
+            itemLayout.addView(itemImage);
 
             // Add a TextView for the item name
             TextView textView = new TextView(this);

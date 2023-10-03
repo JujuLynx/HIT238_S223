@@ -15,7 +15,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "tooltopia";
 
     // below int is our database version
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     // below variable is for our item table name.
     private static final String ITEM_TABLE = "items";
@@ -41,6 +41,9 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable is for our date column.
     private static final String DATE_COL = "date";
 
+    // below variable is for our imgUrl column.
+    private static final String IMGURL_COL = "imgUrl";
+
     // below variable is for our total column.
     private static final String TOTAL_COL = "total";
 
@@ -60,7 +63,9 @@ public class DBHandler extends SQLiteOpenHelper {
                 + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NAME_COL + " TEXT,"
                 + PRICE_COL + " DOUBLE,"
-                + DESCRIPTION_COL + " TEXT)";
+                + DESCRIPTION_COL + " TEXT,"
+                + IMGURL_COL + " TEXT)";
+
         db.execSQL(query);
 
         // Create the orders table (you missed executing this query before)
@@ -71,12 +76,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query2);
 
         // Hard-coded items
-        Items item1 = new Items(1, "Hammer", "Good for hitting nails", 1200.00);
-        Items item2 = new Items(2, "Nails", "Good for getting hammered", 699.99);
-        Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99);
-        Items item4 = new Items(4, "Saw", "Good for cutting wood", 999.99);
-        Items item5 = new Items(5, "Wood", "Good for getting sawed", 499.99);
-        Items item6 = new Items(6, "Screwdriver", "Good for screwing screws", 299.99);
+        Items item1 = new Items(1, "Hammer", "Good for hitting nails", 1200.00, "https://cdn.pixabay.com/photo/2017/07/17/17/35/hammer-2513162_1280.png");
+        Items item2 = new Items(2, "Nails", "Good for getting hammered", 699.99, "https://cdn.pixabay.com/photo/2012/04/18/13/44/nails-37063_1280.png");
+        Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99, "https://banner2.cleanpng.com/20180705/jzb/kisspng-belt-tool-stock-photography-bag-pocket-5b3e113ba19e62.814817951530794299662.jpg");
+        Items item4 = new Items(4, "Saw", "Good for cutting wood", 999.99, "https://cdn.pixabay.com/photo/2012/04/01/19/40/saw-24260_1280.png");
+        Items item5 = new Items(5, "Wood", "Good for getting sawed", 499.99, "https://cdn.pixabay.com/photo/2014/12/21/23/50/tree-576145_1280.png");
+        Items item6 = new Items(6, "Screwdriver", "Good for screwing screws", 299.99, "https://cdn.pixabay.com/photo/2012/04/13/21/06/screwdriver-33634_1280.png");
 
         // Insert items into database
         insertItemIntoDatabase(item1, db);
@@ -94,6 +99,8 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(NAME_COL, item.getName());
         values.put(DESCRIPTION_COL, item.getDescription());
         values.put(PRICE_COL, item.getPrice());
+        values.put(IMGURL_COL, item.getImageUrl());
+
 
         db.insert(ITEM_TABLE, null, values);
     }
@@ -131,24 +138,23 @@ public class DBHandler extends SQLiteOpenHelper {
         int nameIndex = cursor.getColumnIndex(NAME_COL);
         int priceIndex = cursor.getColumnIndex(PRICE_COL);
         int descriptionIndex = cursor.getColumnIndex(DESCRIPTION_COL);
+        int imageUrlIndex = cursor.getColumnIndex(IMGURL_COL);
 
-        if (idIndex != -1 && nameIndex != -1 && priceIndex != -1 && descriptionIndex != -1) {
-            if (cursor.moveToFirst()) { // Make sure to add this line
-                do {
-                    int id = cursor.getInt(idIndex);
-                    String name = cursor.getString(nameIndex);
-                    double price = cursor.getDouble(priceIndex);
-                    String description = cursor.getString(descriptionIndex);
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(idIndex);
+                String name = cursor.getString(nameIndex);
+                double price = cursor.getDouble(priceIndex);
+                String description = cursor.getString(descriptionIndex);
+                String imageUrl = cursor.getString(imageUrlIndex);
 
-                    Items item = new Items(id, name, description, price);
-                    itemList.add(item);
-                } while (cursor.moveToNext());
-            }
+                Items item = new Items(id, name, description, price, imageUrl); // Modified here
+                itemList.add(item);
+            } while (cursor.moveToNext());
         }
 
         cursor.close();
         db.close();
-
         return itemList;
     }
 
@@ -162,6 +168,7 @@ public class DBHandler extends SQLiteOpenHelper {
         int nameIndex = cursor.getColumnIndex(NAME_COL);
         int priceIndex = cursor.getColumnIndex(PRICE_COL);
         int descriptionIndex = cursor.getColumnIndex(DESCRIPTION_COL);
+        int imageUrlIndex = cursor.getColumnIndex(IMGURL_COL);
 
         if (cursor.moveToFirst()) {
             do {
@@ -169,41 +176,40 @@ public class DBHandler extends SQLiteOpenHelper {
                 String name = cursor.getString(nameIndex);
                 double price = cursor.getDouble(priceIndex);
                 String description = cursor.getString(descriptionIndex);
+                String imageUrl = cursor.getString(imageUrlIndex);
 
-                Items item = new Items(id, name, description, price);
+                Items item = new Items(id, name, description, price, imageUrl); // Modified here
                 itemList.add(item);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         db.close();
-
         return itemList;
     }
 
     public Items getItemById(int itemId) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(ITEM_TABLE, null, ID_COL + "=?", new String[]{String.valueOf(itemId)}, null, null, null);
+
         if (cursor == null || !cursor.moveToFirst()) {
-            // Close the cursor if it's not null
             if (cursor != null) cursor.close();
-            return null; // Return null or throw an exception
+            return null;
         }
 
         int idIndex = cursor.getColumnIndex(ID_COL);
         int nameIndex = cursor.getColumnIndex(NAME_COL);
         int descIndex = cursor.getColumnIndex(DESCRIPTION_COL);
         int priceIndex = cursor.getColumnIndex(PRICE_COL);
+        int imageUrlIndex = cursor.getColumnIndex(IMGURL_COL);
 
-        Items item = null;
-        if (idIndex != -1 && nameIndex != -1 && descIndex != -1 && priceIndex != -1) {
-            item = new Items(
-                    cursor.getInt(idIndex),
-                    cursor.getString(nameIndex),
-                    cursor.getString(descIndex),
-                    cursor.getDouble(priceIndex)
-            );
-        }
+        Items item = new Items(
+                cursor.getInt(idIndex),
+                cursor.getString(nameIndex),
+                cursor.getString(descIndex),
+                cursor.getDouble(priceIndex),
+                cursor.getString(imageUrlIndex) // Modified here
+        );
 
         cursor.close();
         return item;
