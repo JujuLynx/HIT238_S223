@@ -7,15 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".Search">
 
+    <include layout="@layout/navbar" />
+
     <TextView
         android:id="@+id/textview_first2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
         android:text="@string/activity_SearchHeading"
         android:textSize="28sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ProductsSearchBtn"
@@ -44,8 +47,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-158dp">
 
         <LinearLayout
             android:id="@+id/product_container"

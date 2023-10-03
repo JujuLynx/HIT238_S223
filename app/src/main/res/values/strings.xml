@@ -11,8 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!-- Strings for the main activity headers -->>
-
-    <string name="activity_Home">Tooltopia</string>
+    <string name="activity_Home">Home</string>
     <string name="activity_MyCart">My Shopping Cart</string>
     <string name="activity_ConfirmOrder">Confirm Your Order</string>
     <string name="activity_MyOrders">My Orders</string>
