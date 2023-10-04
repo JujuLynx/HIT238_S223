@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class DBHandler extends SQLiteOpenHelper {
 
@@ -15,7 +16,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "tooltopia";
 
     // below int is our database version
-    private static final int DB_VERSION = 3;
+    private static final int DB_VERSION = 4;
 
     // below variable is for our item table name.
     private static final String ITEM_TABLE = "items";
@@ -73,7 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // Create the orders table
         String query2 = "CREATE TABLE " + ORDER_TABLE + " ("
-                + NUMBER_COL + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + NUMBER_COL + " TEXT PRIMARY KEY,"
                 + DATE_COL + " TEXT,"
                 + TOTAL_COL + " DOUBLE,"
                 + PICKUP + " TEXT)";
@@ -82,7 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // seeded items items
         Items item1 = new Items(1, "Hammer", "Good for hitting nails", 1200.00, "https://cdn.pixabay.com/photo/2017/07/17/17/35/hammer-2513162_1280.png");
         Items item2 = new Items(2, "Nails", "Good for getting hammered", 699.99, "https://cdn.pixabay.com/photo/2012/04/18/13/44/nails-37063_1280.png");
-        Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99, "https://banner2.cleanpng.com/20180705/jzb/kisspng-belt-tool-stock-photography-bag-pocket-5b3e113ba19e62.814817951530794299662.jpg");
+        Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99, "https://w7.pngwing.com/pngs/95/138/png-transparent-electrician-tool-belt-architectural-engineering-bag-belt-electrical-wires-cable-maintenance-apron-thumbnail.png");
         Items item4 = new Items(4, "Saw", "Good for cutting wood", 999.99, "https://cdn.pixabay.com/photo/2012/04/01/19/40/saw-24260_1280.png");
         Items item5 = new Items(5, "Wood", "Good for getting sawed", 499.99, "https://cdn.pixabay.com/photo/2014/12/21/23/50/tree-576145_1280.png");
         Items item6 = new Items(6, "Screwdriver", "Good for screwing screws", 299.99, "https://cdn.pixabay.com/photo/2012/04/13/21/06/screwdriver-33634_1280.png");
@@ -127,6 +128,9 @@ public class DBHandler extends SQLiteOpenHelper {
         // on below line we are creating a
         // variable for content values.
         ContentValues values = new ContentValues();
+        // Generate UUID and convert it to string
+        String uuidString = UUID.randomUUID().toString();
+        values.put(NUMBER_COL, uuidString);  // Setting UUID for NUMBER_COL
         values.put(DATE_COL, date);
         values.put(TOTAL_COL, total);
         values.put(PICKUP, pickup);

@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ConfirmOrder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +64,7 @@ public class ConfirmOrder extends AppCompatActivity {
         Button ConfirmOrder = findViewById(R.id.confirmOrder);
         Button BackToCart = findViewById(R.id.backToCart);
 
-        ConfirmOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, OrderConfirmed.class);
-                startActivity(intent);
-            }
-        });
+
 
         BackToCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +100,27 @@ public class ConfirmOrder extends AppCompatActivity {
         TextView textView10 = findViewById(R.id.textView10);
         textView10.setText(String.format("%.2f", totalCost));
 
+        //capture the values in the activity and create an order entry in the DB
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = sdf.format(new Date());
+
+        Spinner pickupSpinner = findViewById(R.id.PickupMethodSpinner);
+        String pickupMethod = pickupSpinner.getSelectedItem().toString();
+
+        ConfirmOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmOrder.this, OrderConfirmed.class);
+                startActivity(intent);
+
+                // Add the order to the SQLite database
+                DBHandler dbHandler = new DBHandler(ConfirmOrder.this);
+                dbHandler.addOrder(currentDate, totalCost, pickupMethod);
+            }
+
+
+
+        });
 
     }
 }
