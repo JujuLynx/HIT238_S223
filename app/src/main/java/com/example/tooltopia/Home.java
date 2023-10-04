@@ -14,36 +14,41 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        // Find the button by its ID
-        Button searchButton = findViewById(R.id.HomeSearchProductsBtn);
+        // Nav buttons
 
-        // Set an OnClickListener for the button
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the Search activity
-                Intent intent = new Intent(Home.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        // Set up the "cart" nav button to navigate to the cart activity
-        Button viewCartButton = findViewById(R.id.nav4);
-        viewCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, MyCart.class);
-                startActivity(intent);
-            }
-        });
-
-        // Set up the "search" nav button to navigate to the Search activity
+        Button Home = findViewById(R.id.nav1);
         Button NavSearchButton = findViewById(R.id.nav2);
+        Button MyOrders = findViewById(R.id.nav3);
+        Button MyCart = findViewById(R.id.nav4);
+
+        Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Home.class);
+                startActivity(intent);
+            }
+        });
+
         NavSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the Search activity using an Intent
                 Intent intent = new Intent(Home.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        MyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, MyOrders.class);
+                startActivity(intent);
+            }
+        });
+
+        MyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, MyCart.class);
                 startActivity(intent);
             }
         });

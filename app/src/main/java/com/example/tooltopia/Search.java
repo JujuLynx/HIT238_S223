@@ -52,20 +52,38 @@ public class Search extends AppCompatActivity {
             }
         });
 
-        // Set up the "home" nav button to navigate to the Home activity
-        Button NavHomeButton = findViewById(R.id.nav1);
-        NavHomeButton.setOnClickListener(new View.OnClickListener() {
+        // Nav buttons
+
+        Button Home = findViewById(R.id.nav1);
+        Button NavSearchButton = findViewById(R.id.nav2);
+        Button MyOrders = findViewById(R.id.nav3);
+        Button MyCart = findViewById(R.id.nav4);
+
+        Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the Search activity using an Intent
                 Intent intent = new Intent(Search.this, Home.class);
                 startActivity(intent);
             }
         });
 
-        // Set up the "cart" nav button to navigate to the cart activity
-        Button viewCartButton = findViewById(R.id.nav4);
-        viewCartButton.setOnClickListener(new View.OnClickListener() {
+        NavSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        MyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search.this, MyOrders.class);
+                startActivity(intent);
+            }
+        });
+
+        MyCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Search.this, MyCart.class);

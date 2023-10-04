@@ -47,6 +47,45 @@ public class ProductInfo extends AppCompatActivity {
             }
         }
 
+        // Nav buttons
+
+        Button Home = findViewById(R.id.nav1);
+        Button NavSearchButton = findViewById(R.id.nav2);
+        Button MyOrders = findViewById(R.id.nav3);
+        Button MyCart = findViewById(R.id.nav4);
+
+        Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductInfo.this, Home.class);
+                startActivity(intent);
+            }
+        });
+
+        NavSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductInfo.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        MyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductInfo.this, MyOrders.class);
+                startActivity(intent);
+            }
+        });
+
+        MyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductInfo.this, MyCart.class);
+                startActivity(intent);
+            }
+        });
+
         // Set up the "Back to Products" button to navigate to the Search activity
         Button backButton = findViewById(R.id.button2);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -54,28 +93,6 @@ public class ProductInfo extends AppCompatActivity {
             public void onClick(View v) {
                 // Navigate to the Search activity using an Intent
                 Intent intent = new Intent(ProductInfo.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        // Set up the "search" nav button to navigate to the Search activity
-        Button NavSearchButton = findViewById(R.id.nav2);
-        NavSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the Search activity using an Intent
-                Intent intent = new Intent(ProductInfo.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        // Set up the "home" nav button to navigate to the Home activity
-        Button NavHomeButton = findViewById(R.id.nav1);
-        NavHomeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the Search activity using an Intent
-                Intent intent = new Intent(ProductInfo.this, Home.class);
                 startActivity(intent);
             }
         });
