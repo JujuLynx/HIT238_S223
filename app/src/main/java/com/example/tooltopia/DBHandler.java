@@ -15,7 +15,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "tooltopia";
 
     // below int is our database version
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     // below variable is for our item table name.
     private static final String ITEM_TABLE = "items";
@@ -32,6 +32,9 @@ public class DBHandler extends SQLiteOpenHelper {
     // below variable for our course description column.
     private static final String DESCRIPTION_COL = "description";
 
+    // below variable is for our imgUrl column.
+    private static final String IMGURL_COL = "imgUrl";
+
     // below variable for our order table name.
     private static final String ORDER_TABLE = "orders";
 
@@ -42,7 +45,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATE_COL = "date";
 
     // below variable is for our imgUrl column.
-    private static final String IMGURL_COL = "imgUrl";
+    private static final String PICKUP = "pickup";
 
     // below variable is for our total column.
     private static final String TOTAL_COL = "total";
@@ -68,14 +71,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.execSQL(query);
 
-        // Create the orders table (you missed executing this query before)
+        // Create the orders table
         String query2 = "CREATE TABLE " + ORDER_TABLE + " ("
                 + NUMBER_COL + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DATE_COL + " TEXT,"
-                + TOTAL_COL + " DOUBLE)";
+                + TOTAL_COL + " DOUBLE,"
+                + PICKUP + " TEXT)";
         db.execSQL(query2);
 
-        // Hard-coded items
+        // seeded items items
         Items item1 = new Items(1, "Hammer", "Good for hitting nails", 1200.00, "https://cdn.pixabay.com/photo/2017/07/17/17/35/hammer-2513162_1280.png");
         Items item2 = new Items(2, "Nails", "Good for getting hammered", 699.99, "https://cdn.pixabay.com/photo/2012/04/18/13/44/nails-37063_1280.png");
         Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99, "https://banner2.cleanpng.com/20180705/jzb/kisspng-belt-tool-stock-photography-bag-pocket-5b3e113ba19e62.814817951530794299662.jpg");
@@ -114,7 +118,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     // Method to add an order to the database
-    public void addOrder(String date, double total) {
+    public void addOrder(String date, double total, String pickup) {
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
         // as we are writing data in our database.
@@ -125,6 +129,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(DATE_COL, date);
         values.put(TOTAL_COL, total);
+        values.put(PICKUP, pickup);
         db.insert(ORDER_TABLE, null, values);
         db.close();
     }
