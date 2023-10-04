@@ -3,7 +3,10 @@ package com.example.tooltopia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -73,5 +76,33 @@ public class ConfirmOrder extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // set array for spinner
+        String[] options = {"In-Store", "Curbside"};
+        Spinner pickupMethodSpinner = findViewById(R.id.PickupMethodSpinner);
+
+        // Create an ArrayAdapter using the options array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        pickupMethodSpinner.setAdapter(adapter);
+
+        // Set the total items and total cost TextViews
+
+        // Fetch the passed data
+        int totalItems = getIntent().getIntExtra("totalItems", 0);
+        double totalCost = getIntent().getDoubleExtra("totalCost", 0.0);
+
+        // Set the data to the TextViews
+        TextView confirmOrderItemQtyView = findViewById(R.id.ConfirmOrderItemQtyView);
+        confirmOrderItemQtyView.setText(String.valueOf(totalItems));
+
+        TextView textView10 = findViewById(R.id.textView10);
+        textView10.setText(String.format("%.2f", totalCost));
+
+
     }
 }

@@ -20,6 +20,7 @@ public class Home extends AppCompatActivity {
         Button NavSearchButton = findViewById(R.id.nav2);
         Button MyOrders = findViewById(R.id.nav3);
         Button MyCart = findViewById(R.id.nav4);
+        Button SearchProducts = findViewById(R.id.HomeSearchProductsBtn);
 
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +31,14 @@ public class Home extends AppCompatActivity {
         });
 
         NavSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Search.class);
+                startActivity(intent);
+            }
+        });
+
+        SearchProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Search.class);

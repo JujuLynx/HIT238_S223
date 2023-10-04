@@ -175,7 +175,40 @@ public class MyCart extends AppCompatActivity {
             tableRow.addView(removeButton);
 
             tableLayout.addView(tableRow);
+
+
+
         }
+
+        final int[] totalItemCount = {0};
+        final double[] checkoutCost = {0.0};
+
+        // Compute totalItemCount and totalCost
+        for (Map.Entry<Items, Integer> entry : cartItems.entrySet()) {
+            final Items item = entry.getKey();
+            int quantity = entry.getValue();
+
+            totalItemCount[0] += quantity;
+            checkoutCost[0] += item.getPrice() * quantity;
+
+            // ... rest of the logic ...
+        }
+
+        // Pass the values on checkout button click
+        Button checkoutButton = findViewById(R.id.CartCheckoutBtn);
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyCart.this, ConfirmOrder.class);
+                intent.putExtra("totalItems", totalItemCount[0]);
+                intent.putExtra("totalCost", checkoutCost[0]);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
         // Update the TextView with the computed total cost
         totalCostTextView.setText(String.format("%.2f", totalCost));

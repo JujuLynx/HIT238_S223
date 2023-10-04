@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <include layout="@layout/navbar" />
 
     <TextView
         android:id="@+id/textView"
@@ -60,28 +59,80 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.869" />
 
-    <TableLayout
-        android:layout_width="373dp"
-        android:layout_height="334dp"
+    <TextView
+        android:id="@+id/ConfirmOrderItemQtyView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Items: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.415" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00.000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.632"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <include
+        android:id="@+id/include3"
+        layout="@layout/navbar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Cost: $"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/PickupMethodSpinner"
+        android:layout_width="115dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintStart_toStartOf="@+id/include3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="98dp"
+        android:layout_height="22dp"
+        android:text="Pickup Method:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
