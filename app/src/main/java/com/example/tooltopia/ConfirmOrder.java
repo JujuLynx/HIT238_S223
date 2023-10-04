@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ConfirmOrder extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -110,12 +111,20 @@ public class ConfirmOrder extends AppCompatActivity {
         ConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, OrderConfirmed.class);
-                startActivity(intent);
 
                 // Add the order to the SQLite database
                 DBHandler dbHandler = new DBHandler(ConfirmOrder.this);
                 dbHandler.addOrder(currentDate, totalCost, pickupMethod);
+
+
+
+                Intent intent = new Intent(ConfirmOrder.this, OrderConfirmed.class);
+                startActivity(intent);
+
+
+
+
+
             }
 
 
