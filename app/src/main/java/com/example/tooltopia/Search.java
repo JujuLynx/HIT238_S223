@@ -1,5 +1,7 @@
 package com.example.tooltopia;
 
+import static com.example.tooltopia.NavButtons.createButton;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -53,43 +55,10 @@ public class Search extends AppCompatActivity {
         });
 
         // Nav buttons
-
-        Button Home = findViewById(R.id.nav1);
-        Button NavSearchButton = findViewById(R.id.nav2);
-        Button MyOrders = findViewById(R.id.nav3);
-        Button MyCart = findViewById(R.id.nav4);
-
-        Home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Search.this, Home.class);
-                startActivity(intent);
-            }
-        });
-
-        NavSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Search.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        MyOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Search.this, MyOrders.class);
-                startActivity(intent);
-            }
-        });
-
-        MyCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Search.this, MyCart.class);
-                startActivity(intent);
-            }
-        });
+        createButton(R.id.nav1, Home.class, this);
+        createButton(R.id.nav2, Search.class, this);
+        createButton(R.id.nav3, MyOrders.class, this);
+        createButton(R.id.nav4, MyCart.class, this);
 
         // Add a TextWatcher to the searchText (EditText) to listen for changes
         searchText.addTextChangedListener(new TextWatcher() {

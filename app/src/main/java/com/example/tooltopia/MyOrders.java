@@ -32,6 +32,7 @@ public class MyOrders extends AppCompatActivity {
         Button MyCart = findViewById(R.id.nav4);
         Button BuyMore = findViewById(R.id.BuyMoreBtn);
 
+
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

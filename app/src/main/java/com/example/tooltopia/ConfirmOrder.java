@@ -1,5 +1,7 @@
 package com.example.tooltopia;
 
+import static com.example.tooltopia.NavButtons.createButton;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,43 +24,10 @@ public class ConfirmOrder extends AppCompatActivity {
         setContentView(R.layout.confirmorder);
 
         // Nav buttons
-
-        Button Home = findViewById(R.id.nav1);
-        Button NavSearchButton = findViewById(R.id.nav2);
-        Button MyOrders = findViewById(R.id.nav3);
-        Button MyCart = findViewById(R.id.nav4);
-
-        Home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, Home.class);
-                startActivity(intent);
-            }
-        });
-
-        NavSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        MyOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, MyOrders.class);
-                startActivity(intent);
-            }
-        });
-
-        MyCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ConfirmOrder.this, MyCart.class);
-                startActivity(intent);
-            }
-        });
+        createButton(R.id.nav1, Home.class, this);
+        createButton(R.id.nav2, Search.class, this);
+        createButton(R.id.nav3, MyOrders.class, this);
+        createButton(R.id.nav4, MyCart.class, this);
 
         // Activity Buttons
 

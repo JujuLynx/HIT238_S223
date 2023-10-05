@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+// Static import for the buttons. Means not calling "NavButtons" every time for each button.
+import static com.example.tooltopia.NavButtons.*;
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -15,49 +18,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
 
         // Nav buttons
+        createButton(R.id.nav1, Home.class, this);
+        createButton(R.id.nav2, Search.class, this);
+        createButton(R.id.nav3, MyOrders.class, this);
+        createButton(R.id.nav4, MyCart.class, this);
 
-        Button Home = findViewById(R.id.nav1);
-        Button NavSearchButton = findViewById(R.id.nav2);
-        Button MyOrders = findViewById(R.id.nav3);
-        Button MyCart = findViewById(R.id.nav4);
         Button SearchProducts = findViewById(R.id.HomeSearchProductsBtn);
-
-        Home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Home.class);
-                startActivity(intent);
-            }
-        });
-
-        NavSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
         SearchProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Search.class);
-                startActivity(intent);
-            }
-        });
-
-        MyOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, MyOrders.class);
-                startActivity(intent);
-            }
-        });
-
-        MyCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, MyCart.class);
                 startActivity(intent);
             }
         });
