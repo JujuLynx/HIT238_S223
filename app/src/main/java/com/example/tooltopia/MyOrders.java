@@ -3,6 +3,7 @@ package com.example.tooltopia;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -114,11 +115,15 @@ public class MyOrders extends AppCompatActivity {
         headerRow.addView(header4);
 
         tableLayout.addView(headerRow);
+        int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()); // 8dp padding
+        headerRow.setPadding(0, padding, 0, padding);
 
 // Rows with order details
         for (DBHandler.Order order : orders) {
             TableRow row = new TableRow(this);
             row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+            row.setPadding(0, padding, 0, padding);
 
             // Extract the first 8 characters from the number string
             String shortNumber = order.getNumber().length() > 8 ? order.getNumber().substring(0, 8) : order.getNumber();
