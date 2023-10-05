@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/navbar" />
-
     <TextView
         android:id="@+id/textview_first4"
         android:layout_width="wrap_content"
@@ -18,9 +14,10 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <TextView
         android:id="@+id/emptyCartMessage"
@@ -36,19 +33,6 @@
 
 
     <Button
-        android:id="@+id/CartBackBtn"
-        android:layout_width="99dp"
-        android:layout_height="51dp"
-        android:text="@string/activity_MyCartBackBtn"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905" />
-
-    <Button
         android:id="@+id/CartCheckoutBtn"
         android:layout_width="96dp"
         android:layout_height="52dp"
@@ -59,17 +43,26 @@
         app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.907" />
+        app:layout_constraintVertical_bias="0.83" />
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="372dp"
-        android:layout_height="371dp"
+    <include
+        android:id="@+id/include2"
+        layout="@layout/navbar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-52dp" />
+
+    <Button
+        android:id="@+id/CartBackBtn"
+        android:layout_width="99dp"
+        android:layout_height="51dp"
+        android:text="@string/activity_MyCartBackBtn"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502"/>
+        app:layout_constraintVertical_bias="0.829" />
 
     <TextView
         android:id="@+id/totalCostTextView"
@@ -81,7 +74,7 @@
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.813" />
+        app:layout_constraintVertical_bias="0.74" />
 
     <TextView
         android:id="@+id/textView5"
@@ -93,6 +86,60 @@
         app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.813" />
+        app:layout_constraintVertical_bias="0.74" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="372dp"
+        android:layout_height="371dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="364dp"
+        android:layout_height="22dp"
+        android:indeterminate="false"
+        android:indeterminateTint="#5DB62E"
+        android:max="100"
+        android:progress="33"
+        android:progressTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/include2"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout Progress"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.919" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shopping Cart"
+        android:textColor="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
