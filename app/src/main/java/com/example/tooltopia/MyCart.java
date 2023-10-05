@@ -98,7 +98,7 @@ public class MyCart extends AppCompatActivity {
 
         // Create headers for your table
         TableRow header = new TableRow(this);
-        header.setBackgroundColor(Color.parseColor("#FF6200EE"));
+        header.setBackgroundColor(Color.parseColor("#FF8F00"));
 
         // Product Name header
         TextView headerName = new TextView(this);

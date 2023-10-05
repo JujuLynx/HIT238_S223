@@ -77,9 +77,8 @@ public class OrderConfirmed extends AppCompatActivity {
         });
 
         // Activity Buttons
-
-        Button BuyMore = findViewById(R.id.OrderConfirmedBuyMoreBtn);
         Button MyOrders2 = findViewById(R.id.OrderConfirmedMyOrdersBtn);
+        Button BuyMore = findViewById(R.id.OrderConfirmedBuyMoreBtn);
 
         BuyMore.setOnClickListener(new View.OnClickListener() {
             @Override

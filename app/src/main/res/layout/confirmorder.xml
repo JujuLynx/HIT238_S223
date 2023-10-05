@@ -113,14 +113,14 @@
 
     <Spinner
         android:id="@+id/PickupMethodSpinner"
-        android:layout_width="115dp"
-        android:layout_height="25dp"
+        android:layout_width="150dp"
+        android:layout_height="27dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.777"
         app:layout_constraintStart_toStartOf="@+id/include3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.649" />
 
     <TextView
         android:id="@+id/textView11"

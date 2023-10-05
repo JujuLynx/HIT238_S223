@@ -224,6 +224,67 @@ public class DBHandler extends SQLiteOpenHelper {
         return item;
     }
 
+    public List<Order> getAllOrders() {
+        List<Order> orderList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(ORDER_TABLE, null, null, null, null, null, null);
+
+        int numberIndex = cursor.getColumnIndex(NUMBER_COL);
+        int dateIndex = cursor.getColumnIndex(DATE_COL);
+        int totalIndex = cursor.getColumnIndex(TOTAL_COL);
+        int pickupIndex = cursor.getColumnIndex(PICKUP);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String number = cursor.getString(numberIndex);
+                String date = cursor.getString(dateIndex);
+                double total = cursor.getDouble(totalIndex);
+                String pickup = cursor.getString(pickupIndex);
+
+                Order order = new Order(number, date, total, pickup);
+                orderList.add(order);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return orderList;
+    }
+
+    public class Order {
+        private String number;
+        private String date;
+        private double total;
+        private String pickup;
+
+        // Constructor
+        public Order(String number, String date, double total, String pickup) {
+            this.number = number;
+            this.date = date;
+            this.total = total;
+            this.pickup = pickup;
+        }
+
+        // Getters
+        public String getNumber() {
+            return number;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public double getTotal() {
+            return total;
+        }
+
+        public String getPickup() {
+            return pickup;
+        }
+    }
+
+
+
 
 
 }

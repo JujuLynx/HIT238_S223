@@ -75,4 +75,16 @@
         app:layout_constraintVertical_bias="0.605"
         tools:context=".OrderConfirmed" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pickup Location Here:"
+        android:textColor="#5C5C5C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include4"
+        app:layout_constraintVertical_bias="0.324" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

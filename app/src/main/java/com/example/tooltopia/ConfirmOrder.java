@@ -106,29 +106,21 @@ public class ConfirmOrder extends AppCompatActivity {
         String currentDate = sdf.format(new Date());
 
         Spinner pickupSpinner = findViewById(R.id.PickupMethodSpinner);
-        String pickupMethod = pickupSpinner.getSelectedItem().toString();
 
         ConfirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // Capture the selected spinner value when the button is clicked
+                String pickupMethod = pickupSpinner.getSelectedItem().toString();
+
                 // Add the order to the SQLite database
                 DBHandler dbHandler = new DBHandler(ConfirmOrder.this);
                 dbHandler.addOrder(currentDate, totalCost, pickupMethod);
 
-
-
                 Intent intent = new Intent(ConfirmOrder.this, OrderConfirmed.class);
                 startActivity(intent);
-
-
-
-
-
             }
-
-
-
         });
 
     }
