@@ -58,15 +58,16 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="374dp"
-        android:layout_height="539dp"
+        android:layout_width="368dp"
+        android:layout_height="509dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.906">
 
         <LinearLayout
             android:id="@+id/product_container"
