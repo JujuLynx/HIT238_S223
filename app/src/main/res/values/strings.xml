@@ -50,14 +50,19 @@
     <string name="activity_ConfirmOrderBackBtn">Back To Cart</string>
     <string name="activity_ConfirmOrderConfirmBtn">Confirm Order</string>
     <string name="activity_ConfirmOrderSubheading">NO REFUNDS!</string>
+    <string name="activity_ConfirmOrderInStoreMethod"><b>In Store:</b> Come in and pick up your order from out friendly staff.</string>
+    <string name="activity_ConfirmOrderCurbsideMethod"><b>Curbside:</b> Our friendly staff will meet you in the designated parking spot with your order (card only payments available).</string>
 
     <!-- Strings for the order confirmed activity -->
     <string name="activity_OrderConfirmedHeading">Order Confirmed!</string>
     <string name="activity_OrderConfirmedBuyMoreBtn">Buy More</string>
     <string name="activity_OrderConfirmedMyOrdersBtn">My Orders</string>
-    <string name="activity_OrderConfirmedOrderNum">Order No:</string>
-    <string name="activity_OrderConfirmedMethod">Delivery Method: Pickup Only</string>
     <string name="activity_OrderConfirmedSubHeading">YOUR MONEY IS GONE!</string>
+
+    <!-- Strings for the my orders activity -->
+    <string name="activity_MyOrdersHeading">My Orders</string>
+    <string name="activity_MyOrdersBuyMoreBtn">Buy More</string>
+    <string name="activity_MyOrdersText">Contact our friendly staff with your order number for more details on your order.</string>
 
 
 

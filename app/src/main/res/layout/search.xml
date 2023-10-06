@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF8ED"
     tools:context=".Search">
 
     <EditText
@@ -22,6 +23,7 @@
         app:layout_constraintVertical_bias="0.212" />
 
     <include
+        android:id="@+id/include7"
         layout="@layout/navbar"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="37dp" />
@@ -30,14 +32,16 @@
         android:id="@+id/textview_first2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
         android:text="@string/activity_SearchHeading"
-        android:textSize="28sp"
+        android:textColor="#FF9800"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <Button
         android:id="@+id/ProductsSearchBtn"
@@ -54,14 +58,15 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="373dp"
-        android:layout_height="507dp"
+        android:layout_width="374dp"
+        android:layout_height="539dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856">
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:id="@+id/product_container"

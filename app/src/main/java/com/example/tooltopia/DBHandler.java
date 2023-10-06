@@ -81,12 +81,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query2);
 
         // seeded items items
-        Items item1 = new Items(1, "Hammer", "Good for hitting nails", 1200.00, "https://cdn.pixabay.com/photo/2017/07/17/17/35/hammer-2513162_1280.png");
-        Items item2 = new Items(2, "Nails", "Good for getting hammered", 699.99, "https://cdn.pixabay.com/photo/2012/04/18/13/44/nails-37063_1280.png");
-        Items item3 = new Items(3, "Tool Belt", "Good for holding hammer and nails", 249.99, "https://w7.pngwing.com/pngs/95/138/png-transparent-electrician-tool-belt-architectural-engineering-bag-belt-electrical-wires-cable-maintenance-apron-thumbnail.png");
-        Items item4 = new Items(4, "Saw", "Good for cutting wood", 999.99, "https://cdn.pixabay.com/photo/2012/04/01/19/40/saw-24260_1280.png");
-        Items item5 = new Items(5, "Wood", "Good for getting sawed", 499.99, "https://cdn.pixabay.com/photo/2014/12/21/23/50/tree-576145_1280.png");
-        Items item6 = new Items(6, "Screwdriver", "Good for screwing screws", 299.99, "https://cdn.pixabay.com/photo/2012/04/13/21/06/screwdriver-33634_1280.png");
+        Items item1 = new Items(1, "Hammer", "Good for hitting nails", 120.00, "https://cdn.pixabay.com/photo/2017/07/17/17/35/hammer-2513162_1280.png");
+        Items item2 = new Items(2, "Nails", "Good for getting hammered", 9.99, "https://cdn.pixabay.com/photo/2012/04/18/13/44/nails-37063_1280.png");
+        Items item3 = new Items(3, "Tool Bag", "Good for holding hammer and nails", 249.99, "https://cdn.pixabay.com/photo/2013/07/12/12/31/backpack-145841_1280.png");
+        Items item4 = new Items(4, "Saw", "Good for cutting wood", 79.99, "https://cdn.pixabay.com/photo/2012/04/01/19/40/saw-24260_1280.png");
+        Items item5 = new Items(5, "Wood", "Good for getting sawed", 29.99, "https://cdn.pixabay.com/photo/2014/12/21/23/50/tree-576145_1280.png");
+        Items item6 = new Items(6, "Screwdriver", "Good for screwing screws", 20.50, "https://cdn.pixabay.com/photo/2012/04/13/21/06/screwdriver-33634_1280.png");
 
         // Insert items into database
         insertItemIntoDatabase(item1, db);

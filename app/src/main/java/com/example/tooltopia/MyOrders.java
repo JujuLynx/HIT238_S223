@@ -79,7 +79,15 @@ public class MyOrders extends AppCompatActivity {
         // Retrieve all orders
         List<DBHandler.Order> orders = dbHandler.getAllOrders();
 
-// Header row
+        // Check if there are no orders and display a message.
+        if (orders.isEmpty()) {
+            TextView noOrdersText = findViewById(R.id.NoOrdersTextView);
+            noOrdersText.setVisibility(View.VISIBLE);
+            tableLayout.setVisibility(View.GONE); // Optionally, hide the table if you don't want to show an empty table.
+            return; // Return early so you don't add the headers or other rows.
+        }
+
+        // Header row
         TableRow headerRow = new TableRow(this);
         headerRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         headerRow.setBackgroundColor(getColor(R.color.nav_colour));
@@ -119,7 +127,7 @@ public class MyOrders extends AppCompatActivity {
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics()); // 8dp padding
         headerRow.setPadding(0, padding, 0, padding);
 
-// Rows with order details
+        // Rows with order details
         for (DBHandler.Order order : orders) {
             TableRow row = new TableRow(this);
             row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
